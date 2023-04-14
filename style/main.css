@@ -1,1 +1,136 @@
 @charset "ISO-8859-1";
+
+#myBooks {
+    visibility : visible;
+    background-color : #ffffff;
+	font-size: 30px;
+	color : #800040;
+    margin: 0 auto;
+    width: 300px;
+   border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+#NouveauLivre {
+	visibility : hidden;
+	display:none;
+    background-color : #ffffff;
+	font-size: 30px;
+	color : #800040;
+    margin: 0 auto;
+    width: 600px;
+   border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+#ResultatLivre {
+	visibility : hidden;
+    background-color : #ffffff;
+	font-size: 30px;
+	color : #800040;
+    margin: 0 auto;
+    width: 80%;
+   border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+#pochListe {
+    visibility : visible;
+	font-size: 14px;
+	font-weight: normal;
+	color : #800040;
+   background-color : #ffffff;
+    margin: 0 auto;
+    width: 300px;
+   border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;	
+}
+
+#logo{
+	width: 200px;
+	display: block;
+	margin: auto;
+}
+
+
+.class{
+	color: RED;
+}
+
+.title {
+	font-size: 30px;
+	font-weight: bold;
+	width: 100%;
+	background-color: #e4e7f0;
+	text-align: center;
+	font-family: 'Inter', sans-serif;
+	
+}
+.h2 {
+	font-size: 20px;
+	font-weight: bold;
+	color : #800040;
+	font-family: 'Inter', sans-serif;
+	text-align: center;
+}
+
+#content {
+	font-size: 14px;
+	font-weight: normal;
+	color : #800040;
+
+}
+
+.conteneur{
+	gap: 20px;
+    border: 1px;
+    border: solid;  
+
+}
+
+.box {
+  background-color: #fff;
+  border:1.5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  
+}
+
+form{
+  display: flex;
+  Flex-direction :flow;
+  margin: auto;
+
+}
+
+input {
+	  padding: 10px;
+	  border:1.5px solid black;
+}
+
+@media screen and (max-width: 1200px) {
+/* Insérez vos propriétés CSS ici, avec vos sélecteurs*/
+	.box	{ 
+    flex-direction: column;
+    justify-content: center;
+ 	}
+ 	.conteneur	{ 
+    flex-direction: column;
+    justify-content: center;
+ 	}
+ 	 	.form	{ 
+    flex-direction: column;
+    justify-content: center;
+ 	}
+}
