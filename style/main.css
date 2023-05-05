@@ -83,7 +83,7 @@
 	text-align: center;
 }
 
-#content {
+.content {
 	font-size: 14px;
 	font-weight: normal;
 	color : #800040;
@@ -97,13 +97,27 @@
 
 }
 
+.imagesBook{
+	  width: 128px;
+	  justify-content: right;
+	  padding: 10px;
+}
+
+.ulBookClass {
+	list-style: square;
+	justify-content: left;
+	width: 100%;
+	text-align: left;
+	
+}
 .box {
-  background-color: #fff;
+  background-color: #CCCCCC;
   border:1.5px solid black;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   padding: 50px;
+  	text-align: left;
   
 }
 

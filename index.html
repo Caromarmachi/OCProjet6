@@ -37,13 +37,13 @@
   				</div>
 			<h2 class="h2">Nouveau Livre</h2>
 			
-			<form method="get" action="#"> 
+			<form method="get" action="#" name="myForm"> 
 				  <p>
-    			<label for="titre du live">titre du live :</label><br>
- 			 	<input type="text" name="Titre du livre" id="prenom" placeholder="Ex. : Le Tunnel" size="30" maxlength="20"><br>
- 			 	<label for="auteur">auteur :</label><br>
- 			 	<input type="text" name="Auteur" id="auteur" placeholder="Ex. : Ernesto Sabato" size="30" maxlength="20"><br>
- 			 	<input class="btn btn-large btn-success" type="reset" value="Annuler"  onclick="annulerRecherche();" >
+    			<label for="titre du live">Titre du livre :</label><br>
+ 			 	<input type="text" name="titre" id="titre" placeholder="Ex. : Le Tunnel" size="30" maxlength="20"><br>
+ 			 	<label for="auteur">Auteur :</label><br>
+ 			 	<input type="text" name="auteur" id="auteur" placeholder="Ex. : Ernesto Sabato" size="30" maxlength="20"><br>
+ 			 	<input class="btn btn-large btn-warning" type="reset" value="Annuler"  onclick="annulerRecherche();" >
  			 	<input class="btn btn-large btn-success" type="button" value="Rechercher" onclick="affichageResultat1();">
  			 	
  				 </p>
@@ -51,6 +51,7 @@
 
 		</div>
 
+			
 			<hr>
 			<div id="pochListe">
 				<h2 class="h2">Ma poch'liste</h2>	
@@ -61,12 +62,9 @@
 		  			<h1 >Poch'Lib</h1>
 		  		</div>
 		
-			<div id="content">
+			<div class="content">
 				<h2 class="h2">Résultats de recherche</h2>
-				<div class="conteneur">				
-	    			<div class="box"> Élément 1</div>
-	    			<div class="box"> Élément 2</div>
-				</div>
+	
 		
 			</div>
 		</div>
