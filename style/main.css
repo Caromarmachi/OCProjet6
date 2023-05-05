@@ -7,7 +7,7 @@
 	color : #800040;
     margin: 0 auto;
     width: 300px;
-   border: 1px;
+    border: 1px;
     border: solid;  
     text-align: center;
     font-family: 'Inter', sans-serif;
@@ -22,7 +22,7 @@
 	color : #800040;
     margin: 0 auto;
     width: 600px;
-   border: 1px;
+    border: 1px;
     border: solid;  
     text-align: center;
     font-family: 'Inter', sans-serif;
@@ -35,7 +35,7 @@
 	color : #800040;
     margin: 0 auto;
     width: 80%;
-   border: 1px;
+    border: 1px;
     border: solid;  
     text-align: center;
     font-family: 'Inter', sans-serif;
@@ -43,13 +43,13 @@
 
 #pochListe {
     visibility : visible;
-	font-size: 14px;
+	font-size: 10px;
 	font-weight: normal;
 	color : #800040;
-   background-color : #ffffff;
+   	background-color : #ffffff;
     margin: 0 auto;
-    width: 300px;
-   border: 1px;
+    width: 80%;
+    border: 1px;
     border: solid;  
     text-align: center;
     font-family: 'Inter', sans-serif;	
@@ -98,9 +98,9 @@
 }
 
 .imagesBook{
-	  width: 128px;
-	  justify-content: right;
-	  padding: 10px;
+	width: 128px;
+	justify-content: right;
+	padding: 10px;
 }
 
 .ulBookClass {
@@ -111,26 +111,26 @@
 	
 }
 .box {
-  background-color: #CCCCCC;
-  border:1.5px solid black;
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  padding: 50px;
+    background-color: #CCCCCC;
+    border:1.5px solid black;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 50px;
   	text-align: left;
   
 }
 
 form{
-  display: flex;
-  Flex-direction :flow;
-  margin: auto;
+    display: flex;
+    Flex-direction :flow;
+    margin: auto;
 
 }
 
 input {
-	  padding: 10px;
-	  border:1.5px solid black;
+	padding: 10px;
+	border:1.5px solid black;
 }
 
 @media screen and (max-width: 1200px) {
