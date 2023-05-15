@@ -1,46 +1,40 @@
 @charset "ISO-8859-1";
 
+#logo{
+	width: 200px;
+	display: block;
+	margin: auto;
+}
 #myBooks {
-    visibility : visible;
-    background-color : #ffffff;
-	font-size: 30px;
-	color : #800040;
-    margin: 0 auto;
-    width: 300px;
-    border: 1px;
-    border: solid;  
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    
-}
-
-#NouveauLivre {
-	visibility : hidden;
-	display:none;
-    background-color : #ffffff;
-	font-size: 30px;
-	color : #800040;
-    margin: 0 auto;
-    width: 600px;
-    border: 1px;
-    border: solid;  
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-}
-
-#ResultatLivre {
-	visibility : hidden;
     background-color : #ffffff;
 	font-size: 30px;
 	color : #800040;
     margin: 0 auto;
     width: 80%;
-    border: 1px;
     border: solid;  
     text-align: center;
     font-family: 'Inter', sans-serif;
 }
-
+.h2 {
+	font-size: 20px;
+	font-weight: bold;
+	color : #800040;
+	font-family: 'Inter', sans-serif;
+	text-align: center;
+}
+.btn {
+    background-color: #30911f;
+    width: 200px;
+	padding: 15px;
+	border: none;
+    border-radius: 30px;
+    margin: 20px;
+    font-size: 16px;   
+}
+/* Un bouton classique mais avec une couleur de fond rouge. */
+.btn-rouge {
+    background-color: #e63222;    
+}
 #pochListe {
     visibility : visible;
 	font-size: 10px;
@@ -54,97 +48,111 @@
     text-align: center;
     font-family: 'Inter', sans-serif;	
 }
-
-#logo{
-	width: 200px;
-	display: block;
-	margin: auto;
+.boxPochList {
+    background-color: #f3daf2;
+    border:1.5px solid black;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+	padding: 50px;
 }
-
-
-.class{
-	color: RED;
+form{
+    display: flex;
+    Flex-direction :flow;
+    margin: auto;
+    border:1.5px solid black;
+    justify-content: center;
 }
-
-.title {
-	font-size: 30px;
-	font-weight: bold;
-	width: 100%;
-	background-color: #e4e7f0;
-	text-align: center;
-	font-family: 'Inter', sans-serif;
-	
+input {
+	padding: 10px;
+	border:1.5px solid black;
 }
-.h2 {
-	font-size: 20px;
-	font-weight: bold;
-	color : #800040;
-	font-family: 'Inter', sans-serif;
-	text-align: center;
-}
-
 .content {
 	font-size: 14px;
 	font-weight: normal;
 	color : #800040;
-
-}
-
-.conteneur{
-	gap: 20px;
-    border: 1px;
-    border: solid;  
-
-}
-
-.imagesBook{
-	width: 128px;
-	justify-content: right;
-	padding: 10px;
-}
-
-.ulBookClass {
-	list-style: square;
-	justify-content: left;
-	width: 100%;
-	text-align: left;
-	
 }
 .box {
     background-color: #CCCCCC;
     border:1.5px solid black;
     display: flex;
-    align-items: left;
     justify-content: left;
-    padding: 50px;
-  	text-align: left;
-  
+	padding: 50px;
+}
+.ulBookClass {
+	list-style: square;
+	width: 100%;
+	text-align: left;
+}
+.imagesBook{
+	width: 128px;
+	padding: 0;
+}
+#NouveauLivre {
+	visibility : hidden;
+	display:none;
+    background-color : #ffffff;
+	font-size: 30px;
+	color : #800040;
+    margin: 0 auto;
+    width: 80%;
+    border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+#ResultatLivre {
+	visibility : hidden;
+    background-color : #ffffff;
+	font-size: 30px;
+	color : #800040;
+    margin: 0 auto;
+    width: 80%;
+    border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (max-width:1280px){
+	.box{
+	flex-direction: column;
+	}
+	.boxPochList{
+	flex-direction: column;
+	justify-content: center;
+
+	}
+	.ulBookClass{
+	flex-direction: column;
+	padding : 0;
+	}
+	.imagesBook{
+	margin: auto;
+	}
+	.fa-xl {
+    line-height:1.5em;
+
+	}
+}
+/* Special fold  */
+@media screen and (max-width:290px){
+	.box{
+	flex-direction: column;
+	}
+	.boxPochList{
+	flex-direction: column;
+	justify-content: left;
+	margin: auto;
+	}
+	.ulBookClass{
+	flex-direction: column;
+	padding : 0;
+	}
+	.btn {
+	size: 60%;
+	width: 60%;
+	}
 }
 
-form{
-    display: flex;
-    Flex-direction :flow;
-    margin: auto;
-
-}
-
-input {
-	padding: 10px;
-	border:1.5px solid black;
-}
-
-@media screen and (max-width: 1200px) {
-/* Insérez vos propriétés CSS ici, avec vos sélecteurs*/
-	.box	{ 
-    flex-direction: column;
-    justify-content: center;
- 	}
- 	.conteneur	{ 
-    flex-direction: column;
-    justify-content: center;
- 	}
- 	 	.form	{ 
-    flex-direction: column;
-    justify-content: center;
- 	}
-}
+      
