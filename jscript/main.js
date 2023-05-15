@@ -17,7 +17,19 @@ function affichageResultat1() {
 	//document.getElementById('pochListe').style.visibility = 'hidden';
 	
 	let titre = document.myForm.titre.value;
-	let url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyBFjzEAVJEbpTF1Ee-eNv3Jy1m2s4BbtKU&q=" + titre;
+	let auteur = document.myForm.auteur.value;
+	if (titre==null || titre.length<1) {
+			if (auteur==null || auteur.length<1) {
+				alert("Vous devez choisir des critères de recherche.");
+				return;
+			} else {
+				auteur = "inauthor:"+auteur;
+			}
+	} else {
+		titre = "intitle:"+titre;
+	}
+
+	let url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyBFjzEAVJEbpTF1Ee-eNv3Jy1m2s4BbtKU&q=" + titre + "+" + auteur;
 	httpGetAsync(url, handleResponse);
 
 
