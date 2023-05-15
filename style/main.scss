@@ -1,0 +1,161 @@
+@charset "ISO-8859-1";
+$couleur-bordeau: "#800040";
+$couleur-rose: "#f3daf2";
+
+
+#logo{
+	width: 200px;
+	display: block;
+	margin: auto;
+}
+#myBooks {
+    background-color : white;
+	font-size: 30px;
+	color : #{$couleur-bordeau};
+    margin: 0 auto;
+    width: 80%;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+.h2 {
+	font-size: 20px;
+	font-weight: bold;
+	color : #{$couleur-bordeau};
+	font-family: 'Inter', sans-serif;
+	text-align: center;
+}
+.btn {
+    background-color: #30911f;
+    width: 200px;
+	padding: 15px;
+	border: none;
+    border-radius: 30px;
+    margin: 20px;
+    font-size: 16px;   
+}
+/* Un bouton classique mais avec une couleur de fond rouge. */
+.btn-rouge {
+    background-color: #e63222;    
+}
+#pochListe {
+    visibility : visible;
+	font-size: 10px;
+	font-weight: normal;
+	color : #{$couleur-bordeau};
+   	background-color : white;
+    margin: 0 auto;
+    width: 80%;
+    border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;	
+}
+.boxPochList {
+    background-color: #{$couleur-rose};
+    border:1.5px solid black;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+	padding: 50px;
+}
+form{
+    display: flex;
+    Flex-direction :flow;
+    margin: auto;
+    border:1.5px solid black;
+    justify-content: center;
+}
+input {
+	padding: 10px;
+	border:1.5px solid black;
+}
+.content {
+	font-size: 14px;
+	font-weight: normal;
+	color : #{$couleur-bordeau};
+}
+.box {
+    background-color: #CCCCCC;
+    border:1.5px solid black;
+    display: flex;
+    justify-content: left;
+	padding: 50px;
+}
+.ulBookClass {
+	list-style: square;
+	width: 100%;
+	text-align: left;
+}
+.imagesBook{
+	width: 128px;
+	padding: 0;
+}
+#NouveauLivre {
+	visibility : hidden;
+	display:none;
+    background-color : white;
+	font-size: 30px;
+	color : #{$couleur-bordeau};
+    margin: 0 auto;
+    width: 80%;
+    border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+#ResultatLivre {
+	visibility : hidden;
+    background-color : white;
+	font-size: 30px;
+	color : #{$couleur-bordeau};
+    margin: 0 auto;
+    width: 80%;
+    border: 1px;
+    border: solid;  
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+/* Sur les �crans, quand la largeur de la fen�tre fait au maximum 1280px */
+@media screen and (max-width:1280px){
+	.box{
+	flex-direction: column;
+	}
+	.boxPochList{
+	flex-direction: column;
+	justify-content: center;
+
+	}
+	.ulBookClass{
+	flex-direction: column;
+	padding : 0;
+	}
+	.imagesBook{
+	margin: auto;
+	}
+	.fa-xl {
+    line-height:1.5em;
+
+	}
+}
+/* Special fold  */
+@media screen and (max-width:290px){
+	.box{
+	flex-direction: column;
+	}
+	.boxPochList{
+	flex-direction: column;
+	justify-content: left;
+	margin: auto;
+	}
+	.ulBookClass{
+	flex-direction: column;
+	padding : 0;
+	}
+	.btn {
+	size: 60%;
+	width: 60%;
+	}
+}
+
+      
