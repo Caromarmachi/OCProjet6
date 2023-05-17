@@ -1,6 +1,9 @@
 @charset "ISO-8859-1";
-$couleur-bordeau: "#800040";
-$couleur-rose: "#f3daf2";
+$couleur-bordeau: #800040;
+$couleur-rose: #f3daf2;
+$cd-btn-start: rgb(255, 128, 0);
+$cd-btn-end: rgb(128, 128, 192);
+
 
 
 #logo{
@@ -11,7 +14,7 @@ $couleur-rose: "#f3daf2";
 #myBooks {
     background-color : white;
 	font-size: 30px;
-	color : #{$couleur-bordeau};
+	color : $couleur-bordeau;
     margin: 0 auto;
     width: 80%;
     border: solid;  
@@ -21,7 +24,7 @@ $couleur-rose: "#f3daf2";
 .h2 {
 	font-size: 20px;
 	font-weight: bold;
-	color : #{$couleur-bordeau};
+	color : $couleur-bordeau;
 	font-family: 'Inter', sans-serif;
 	text-align: center;
 }
@@ -33,16 +36,24 @@ $couleur-rose: "#f3daf2";
     border-radius: 30px;
     margin: 20px;
     font-size: 16px;   
+	transition: transform 450ms, background-color 300ms;
+	transition-delay: 0, 150ms;
+            &:hover {
+        transform: scale(1.13);
+        background-color: $cd-btn-end;
+    } 
+
 }
 /* Un bouton classique mais avec une couleur de fond rouge. */
 .btn-rouge {
-    background-color: #e63222;    
+    background-color: #e63222;   
+
 }
 #pochListe {
     visibility : visible;
 	font-size: 10px;
 	font-weight: normal;
-	color : #{$couleur-bordeau};
+	color : $couleur-bordeau;
    	background-color : white;
     margin: 0 auto;
     width: 80%;
@@ -52,7 +63,7 @@ $couleur-rose: "#f3daf2";
     font-family: 'Inter', sans-serif;	
 }
 .boxPochList {
-    background-color: #{$couleur-rose};
+    background-color: $couleur-rose;
     border:1.5px solid black;
     display: flex;
     align-items: left;
@@ -73,7 +84,7 @@ input {
 .content {
 	font-size: 14px;
 	font-weight: normal;
-	color : #{$couleur-bordeau};
+	color : $couleur-bordeau;
 }
 .box {
     background-color: #CCCCCC;
@@ -96,7 +107,7 @@ input {
 	display:none;
     background-color : white;
 	font-size: 30px;
-	color : #{$couleur-bordeau};
+	color : $couleur-bordeau;
     margin: 0 auto;
     width: 80%;
     border: 1px;
@@ -108,7 +119,7 @@ input {
 	visibility : hidden;
     background-color : white;
 	font-size: 30px;
-	color : #{$couleur-bordeau};
+	color : $couleur-bordeau;
     margin: 0 auto;
     width: 80%;
     border: 1px;

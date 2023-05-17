@@ -28,7 +28,12 @@
   border: none;
   border-radius: 30px;
   margin: 20px;
-  font-size: 16px; }
+  font-size: 16px;
+  transition: transform 450ms, background-color 300ms;
+  transition-delay: 0, 150ms; }
+  .btn:hover {
+    transform: scale(1.13);
+    background-color: #8080c0; }
 
 /* Un bouton classique mais avec une couleur de fond rouge. */
 .btn-rouge {
