@@ -3,22 +3,36 @@ Instructions pour installer le projet
 
 Repository Github :
 
-Voici le lient Github avex le code du projet : https://github.com/Caromarmachi/OCProjet6.git
+Voici le lient Github avec le code du projet : https://github.com/Caromarmachi/OCProjet6.git
 
-Vous avez plusieurs options pour lancer le projet. Si vous utilisez VSCode ou un autre éditeur de code avec une extension de serveur web comme live server, 
-vous pouvez lancer directement votre site avec l'extension que vous utilisez habituellement.
+Le projet se compose de 3 ressources principales, et d'autres fichiers: 
+- index.html		(le point d'entrée HTML du projet)
+- style/main.css	(le fichier CSS de définition du style)
+- jscript/main.js	(le fichier javascript contenant toutes les fonctions nécessaires au bon fonctionnement de l'application)
+Vous récupèrerez également d'autres ressources nécessaires : 
+- les images dans le répertoire images
+- des fichiers utilisés par SASS (l'outil qui génère le fichier CSS à partir de notre fichier SCSS)
+	 - package.json + fichiers dans le répertoire node_modules
 
-Dans le cas contraire vous pouvez installer les dépendances de ce projet avec npm install puis lancer le projet via la commande npm start.
+Concernant SASS : 
+- J'ai installé tout d'abord NODE.JS depuis le site https://nodejs.org/en
+- en me positionnant dans le répertoire du projet j'ai lancé les commandes :
+> npm init -y
+> npm install sass
+Dans le fichier package.json généré j'ai ajouté les lignes suivantes : 
+"scripts": {
+   "compile": "sass style/main.scss style/main.css --watch"
+}
 
-Installez Sass en local pour modifier le style du site :
+En phase de développement, afin que notre fichier CSS soit généré automatiquement à chaque changement je dois lancer la commande : 
+> npm run compile
 
-Vous pouvez installer Sass (installation du Pre-Processeur Ruby) sur Windows, Mac ou Linux en téléchargeant le package qui correspond à votre système d’exploitation directement depuis ce lien suivant :
 
-https://sass-lang.com/install 
+Pour lancer le projet et utiliser l'application : 
 
-Une fois Sass installé, vous pourrez  créer ou actualiser le style de la page depuis le fichier main.scss 
+Une fois les ressources ci-dessus récupérées du dépot GIT, il vous suffit de lancer le fichier index.html dans votre navigateur.
+Vous pouvez ensuite utiliser l'application (effectuer des recherches, ajouter des livre dans votre pochListe, etc.).
 
-Pour compiler le fichiers .scss vous devez taper la commande suivante depuis votre terminal :
 
-sass main.scss main.css
+
 
