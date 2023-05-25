@@ -1,66 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<script src="https://kit.fontawesome.com/259d7499e4.js" crossorigin="anonymous"></script>
 		<title>Poch'Lib</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="style/main.css" rel="stylesheet">
-        <!--Connection API... -->
+		<script src="https://kit.fontawesome.com/259d7499e4.js" crossorigin="anonymous"></script>	
         <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<script src="jscript/main.js" ></script>
-		<!-- pour appliquer les différents styles de texte (épaisseur et italique) pour les polices importées -->
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">	
+		<link href="style/main.css" rel="stylesheet">
+		
   	</head>
-  	<body onload="chargementPochListe();">
-  	
-  		<div class="title">
-  		</div>
-
-		<div id="myBooks" >
-		<header>
-			<img id="logo" src="images/logo.png" title="Poch'Lib" alt="Poch'Lib" />
-		</header>
+  	<body>
+	<div id="myBooks">
+			<img id="logo" src="images/newlogo.png" title="Poch'Lib" alt="Poch'Lib" />
+			<h1 class="title">Poch'Lib</h1>
 			<h2 class="h2">Nouveau Livre</h2>
-			<button class="btn" onclick="affichagePage2();"><i class="fa-sharp fa-solid fa-book"></i> Ajouter un livre</button>
 			<hr>
-		</div>
-
-		<div id="NouveauLivre" >
-		  		<div class="title">
-		  			<img id="logo" src="images/logo.png" title="Poch'Lib" alt="Poch'Lib" />
-
-  				</div>
-			<h2 class="h2">Nouveau Livre</h2>
-			
-			<form  name="myForm"> 
-				  <p>
-    			<label for="titre du live">Titre du livre :</label><br>
- 			 	<input type="text" name="titre" id="titre" placeholder="Ex. : Le Tunnel" size="20" maxlength="20"><br>
- 			 	<label for="auteur">Auteur :</label><br>
- 			 	<input type="text" name="auteur" id="auteur" placeholder="Ex. : Ernesto Sabato" size="20" maxlength="20"><br>
-
- 				<input type="button" class="btn"  onclick="affichageResultat1();" value="Rechercher">
- 				<input type="button" class="btn btn-rouge"  onclick="annulerRecherche();" value="Annuler">
-				
- 				 </p>
- 			</form>
- 			
-		</div>
-		
-		<hr>	
-			
-		<div id="ResultatLivre">
-			<div class="content">
+			<div id="content">
+				<h2>Ma poch'liste</h2>
 			</div>
-		</div>	
-		
-		<hr>	
-			
-		<div id="pochListe" >
 		</div>
-		
   	</body>
+	<script src="jscript/main.js" ></script>
 </html>

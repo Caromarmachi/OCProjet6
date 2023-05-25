@@ -3,18 +3,16 @@
  */
 
 function affichagePage2() {
-	document.getElementById('NouveauLivre').style.display = 'block';
-	document.getElementById('NouveauLivre').style.visibility = 'visible';
-	document.getElementById('myBooks').style.visibility = 'hidden';
-	document.getElementById('myBooks').style.display = 'none';
-	document.getElementById('pochListe').style.visibility = 'visible';
-
+	document.getElementById('divFormulaire').style.display = 'block';
+	document.getElementById('divFormulaire').style.visibility = 'visible';
+	document.getElementById('monBoutonAjouterLivre').style.visibility = 'hidden';
+	document.getElementById('monBoutonAjouterLivre').style.display = 'none';
 }
 
 function affichageResultat1() {
-	document.getElementById('ResultatLivre').style.display = 'block';
-	document.getElementById('ResultatLivre').style.visibility = 'visible';
-	//document.getElementById('pochListe').style.visibility = 'hidden';
+	document.getElementById('divResultatLivre').style.display = 'grid';
+	document.getElementById('divResultatLivre').style.visibility = 'visible';
+
 	
 	let titre = document.myForm.titre.value;
 	let auteur = document.myForm.auteur.value;
@@ -48,85 +46,107 @@ function httpGetAsync(theUrl, callback) {
 }
 
 function handleResponse(response) {
-	document.querySelector('.content').innerHTML = "";
-
-	const h2Resultat = document.createElement('h2');
-	h2Resultat.className="h2";
-		console.log("Résultats de ma recherche");
-	h2Resultat.innerText="Résultats de ma recherche :";
-	document.querySelector('.content').appendChild(h2Resultat);
-
-	for (var i = 0; i < response.items.length; i++) {
-		let item = response.items[i];
-		// in production code, item.text should have the HTML entities escaped.
-		let fullDescription = "";
-		try {
-			if(typeof item.volumeInfo.description !="undefined"){
-			//	console.log(item.volumeInfo.description);
+	if (response.items == null) {
+		alert("Aucun livre n'a été trouvé");
+	} else {	
 	
-				fullDescription = item.volumeInfo.description + '';
-				if (fullDescription.length > 199) {
-					fullDescription = fullDescription.substring(0, 199);				
-				}
-			}
-			else {fullDescription = "Pas de description";
-			}
-		} catch (error) {
-
-			fullDescription = "Pas de description";
-
+		let divResultatLivre = document.getElementById('divResultatLivre');
+		divResultatLivre.innerHTML = "";
+		let divMyBooks = document.getElementById('myBooks');
+		let h2Resultat = document.getElementById('h2Resultat');
+	
+		if(h2Resultat===null) {
+			h2Resultat = document.createElement('h2');
+			h2Resultat.className="h2";
+			h2Resultat.id="h2Resultat";
+			h2Resultat.innerText="Résultats de ma recherche :";
+			h2Resultat =  divMyBooks.insertBefore(h2Resultat,divResultatLivre);
 		}
-
-		let image = "";
-		try {
-			image = item.volumeInfo.imageLinks.smallThumbnail;
-		} catch (error) {
-			image = "images/unavailable.png";
-		}
-
-		const divElement = document.createElement('div');
-		divElement.className = "box";		
-		const ulElement = document.createElement('ul');
-		ulElement.className = "ulBookClass";
-		const titreElement = document.createElement('li');
-		titreElement.innerText = "Titre: " + item.volumeInfo.title;
-		const idElement = document.createElement('li');
-		idElement.innerText = "ID: " + item.id;
-		const auteursElement = document.createElement('li');
-		auteursElement.innerText = "Auteurs: " + item.volumeInfo.authors;
-		const descriptionElement = document.createElement('li');
-		descriptionElement.innerText = "Description: " + fullDescription + "...";
-		const imageElement = document.createElement('img');
-		imageElement.src = image;
-		imageElement.className = "imagesBook";
-
-		divElement.appendChild(ulElement);
-		ulElement.appendChild(titreElement)
-		ulElement.appendChild(idElement)
-		ulElement.appendChild(auteursElement)
-		ulElement.appendChild(descriptionElement)
-		divElement.appendChild(imageElement);
-
-		const boutonElement = document.createElement('i');
-		boutonElement.className = "fa-solid fa-book-bookmark fa-xl";
 		
-		//j'ajoute au bouton la fonction javascript 'methodeBoutonAjoutListe' qui prend en parametre l'item en cours
-		boutonElement.onclick = function() { methodeBoutonAjoutListe(item); };
-		divElement.appendChild(boutonElement);
-		document.querySelector('.content').appendChild(divElement);
+		document.getElementById('h2Resultat').style.visibility = 'visible';
+		document.getElementById('h2Resultat').style.display = 'block';
 
+
+		for (var i = 0; i < response.items.length; i++) {
+			let item = response.items[i];
+			// in production code, item.text should have the HTML entities escaped.
+			let fullDescription = "";
+			try {
+				if(typeof item.volumeInfo.description !="undefined"){
+				//	console.log(item.volumeInfo.description);
+		
+					fullDescription = item.volumeInfo.description + '';
+					if (fullDescription.length > 199) {
+						fullDescription = fullDescription.substring(0, 199);				
+					}
+				}
+				else {fullDescription = "Pas de description";
+				}
+			} catch (error) {
+	
+				fullDescription = "Pas de description";
+	
+			}
+	
+			let image = "";
+			try {
+				image = item.volumeInfo.imageLinks.smallThumbnail;
+			} catch (error) {
+				image = "images/unavailable.png";
+			}
+	
+			let divElement = document.createElement('div');
+			divElement.className = "box";		
+			let ulElement = document.createElement('ul');
+			ulElement.className = "ulBookClass";
+			let titreElement = document.createElement('li');
+			titreElement.innerHTML = "<b>Titre: " + item.volumeInfo.title + "</b>";
+			let idElement = document.createElement('li');
+			idElement.innerHTML = "<b>ID: " + item.id + "</b>";
+			let auteursElement = document.createElement('li');
+			auteursElement.innerText = "Auteurs: " + item.volumeInfo.authors;
+			let descriptionElement = document.createElement('li');
+			descriptionElement.innerText = "Description: " + fullDescription + "...";
+			let imageElement = document.createElement('img');
+			imageElement.src = image;
+			imageElement.className = "imagesBook";
+	
+			divElement.appendChild(ulElement);
+			ulElement.appendChild(titreElement)
+			ulElement.appendChild(idElement)
+			ulElement.appendChild(auteursElement)
+			ulElement.appendChild(descriptionElement)
+			divElement.appendChild(imageElement);
+	
+			let boutonElement = document.createElement('i');
+			boutonElement.className = "fa-solid fa-book-bookmark fa-xl iconAjout";
+			
+		
+	//I add to the button the javascript function 'MethodBoutonAjoutListe' which takes the current item as a parameter
+			boutonElement.onclick = function() { methodeBoutonAjoutListe(item); };
+			divElement.prepend(boutonElement);
+			divResultatLivre.appendChild(divElement);
+	
+		}
 	}
 
 }
 
-function annulerRecherche() { //revient à la page d'accueil
-	document.getElementById('NouveauLivre').style.display = 'none';
-	document.getElementById('NouveauLivre').style.visibility = 'hidden';
-	document.getElementById('myBooks').style.visibility = 'visible';
-	document.getElementById('myBooks').style.display = 'block';
-	document.getElementById('pochListe').style.visibility = 'visible';
-	document.getElementById('ResultatLivre').style.visibility = 'hidden';
-	document.getElementById('ResultatLivre').style.display = 'none';
+function annulerRecherche() { 
+//return to home page
+	document.getElementById('divFormulaire').style.display = 'none';
+	document.getElementById('divFormulaire').style.visibility = 'hidden';
+	document.getElementById('monBoutonAjouterLivre').style.visibility = 'visible';
+	document.getElementById('monBoutonAjouterLivre').style.display = 'block';	
+
+	document.getElementById('divResultatLivre').style.visibility = 'hidden';
+	document.getElementById('divResultatLivre').style.display = 'none';
+	document.getElementById('h2Resultat').style.visibility = 'hidden';
+	document.getElementById('h2Resultat').style.display = 'none';
+	
+	
+	document.getElementById('content').style.visibility = 'visible';
+	document.getElementById('content').style.display = 'grid';
 
 }
 
@@ -146,8 +166,6 @@ function methodeBoutonAjoutListe(item) {
 }
 
 function methodeSuppressionListe(item) {
-	console.log(item.id);
-	
 	window.sessionStorage.removeItem(item.id);
 	window.localStorage.removeItem(item.id);
 	
@@ -155,8 +173,8 @@ function methodeSuppressionListe(item) {
 	
 }
 
-function methodeEffacerListe() {  // purge toute la liste
-	document.getElementById('pochListe').innerHTML = "";
+function methodeEffacerListe() { // purge the whole list
+	document.getElementById('content').innerHTML = "";
 		for (let i=0; i<window.localStorage.length; i++) {
 			 let key = window.localStorage.key(i);
 			 window.localStorage.removeItem(key);
@@ -165,9 +183,9 @@ function methodeEffacerListe() {  // purge toute la liste
 
 	headerPochList();
 }
-
-function chargementPochListe() { //purge la liste et reconstruit le header et le contenu de la liste
-		document.getElementById('pochListe').innerHTML = "";
+// purge the list and rebuild the header and the content of the list
+function chargementPochListe() { 
+		document.getElementById('content').innerHTML = "";
 		headerPochList();
 		
 			for (let i=0; i<window.localStorage.length; i++) {
@@ -196,19 +214,19 @@ function chargementPochListe() { //purge la liste et reconstruit le header et le
 					image = "images/unavailable.png";
 				}
 		
-				const divElement = document.createElement('div');
-				divElement.className = "boxPochList";				
-				const ulElement = document.createElement('ul');
+				let divElement = document.createElement('div');
+				divElement.className = "box boxPochList";				
+				let ulElement = document.createElement('ul');
 				ulElement.className = "ulBookClass";		
-				const titreElement = document.createElement('li');
-				titreElement.innerText = "Titre: " + item.volumeInfo.title;		
-				const idElement = document.createElement('li');
-				idElement.innerText = "ID: " + item.id;		
-				const auteursElement = document.createElement('li');
+				let titreElement = document.createElement('li');
+				titreElement.innerHTML = "<b>Titre: " + item.volumeInfo.title + "</b>";		
+				let idElement = document.createElement('li');
+				idElement.innerHTML = "<b>ID: " + item.id + "</b>";	
+				let auteursElement = document.createElement('li');
 				auteursElement.innerText = "Auteurs: " + item.volumeInfo.authors;		
-				const descriptionElement = document.createElement('li');
+				let descriptionElement = document.createElement('li');
 				descriptionElement.innerText = "Description: " + fullDescription + "...";		
-				const imageElement = document.createElement('img');
+				let imageElement = document.createElement('img');
 				imageElement.src = image;
 				imageElement.className = "imagesBook";
 				
@@ -219,33 +237,72 @@ function chargementPochListe() { //purge la liste et reconstruit le header et le
 				ulElement.appendChild(descriptionElement)
 				divElement.appendChild(imageElement);
 								
-				const boutonElementTrash = document.createElement('i');
-				boutonElementTrash.className = "fa-solid fa-trash fa-xl";	
+				let boutonElementTrash = document.createElement('i');
+				boutonElementTrash.className = "fa-solid fa-trash fa-xl iconAjout";	
 		
 				boutonElementTrash.onclick = function() { methodeSuppressionListe(item); };
-				divElement.appendChild(boutonElementTrash);
-				document.getElementById('pochListe').appendChild(divElement);		  
+				divElement.prepend(boutonElementTrash);
+				document.getElementById('content').appendChild(divElement);		
+
 						  
 			}
 }
+// build the header of the empty list (title + purge button)
+function headerPochList() { 
+	
+		let divContent = document.getElementById('content');
+		let h2PochList = document.getElementById('h2PochList');
+		let divMyBooks = document.getElementById('myBooks');
 
-function headerPochList() { // construit le header de la liste vide (titre + bouton purger)
-		const h2PochList = document.createElement('h2');
-		h2PochList.className="h2";
-		h2PochList.innerText="Ma poch'liste";
-		const divElementPochList = document.createElement('div');
-		const boutonClearElement = document.createElement('i');
-		boutonClearElement.className = "fa-solid fa-trash";
-		boutonClearElement.innerText = " Effacer TOUTE ma Poch liste";
-		boutonClearElement.onclick = function() { methodeEffacerListe(); };
-		divElementPochList.appendChild(boutonClearElement);
-		document.getElementById('pochListe').appendChild(h2PochList);
-		document.getElementById('pochListe').appendChild(divElementPochList);
+	
+		if(h2PochList===null) {
+			h2PochList = document.createElement('h2');
+			h2PochList.className="h2";
+			h2PochList.id="h2PochList";
+			h2PochList.innerText="Ma poch'liste";
+			h2PochList =  divMyBooks.insertBefore(h2PochList,divContent);
+		}
+		
+		document.getElementById('content').style.visibility = 'visible';
+		document.getElementById('content').style.display = 'grid';
+	
+		
 }
 
+function initPage() {
+	let monBoutonAjouterLivre = document.createElement('button');
+	monBoutonAjouterLivre.className = "btn";	
+	monBoutonAjouterLivre.innerText = 'Ajouter un livre';
+	monBoutonAjouterLivre.id = "monBoutonAjouterLivre";
+	monBoutonAjouterLivre.onclick = function() { affichagePage2(); };
+	let divMyBooks = document.getElementById('myBooks');
+	let myHR = document.getElementsByTagName('hr')[0];
+	monBoutonAjouterLivre = divMyBooks.insertBefore(monBoutonAjouterLivre,myHR);
+	let  divFormulaire = document.createElement('div');
+	divFormulaire.id = "divFormulaire";
+	let innerHTMLForm = "<form  name=\"myForm\"> " +
+				"<p>" +
+    			"<label for=\"titre du live\">Titre du livre :</label><br>" +
+ 			 	"<input type=\"text\" name=\"titre\" id=\"titre\" placeholder=\"Ex. : Le Tunnel\" size=\"20\" maxlength=\"20\"><br>" +
+ 			 	"<label for=\"auteur\">Auteur :</label><br>" +
+ 			 	"<input type=\"text\" name=\"auteur\" id=\"auteur\" placeholder=\"Ex. : Ernesto Sabato\" size=\"20\" maxlength=\"20\"><br>" +
+ 				"<input type=\"button\" class=\"btn\"  onclick=\"affichageResultat1();\" value=\"Rechercher\">" +
+ 				"<input type=\"button\" class=\"btn btn-rouge\"  onclick=\"annulerRecherche();\" value=\"Annuler\">" +
+ 				"</p>" +
+ 			"</form>";
+	divFormulaire.innerHTML = innerHTMLForm;	
+	divFormulaire =  divMyBooks.insertBefore(divFormulaire,myHR);
+	let  divResultatLivre = document.createElement('div');
+	divResultatLivre.id = "divResultatLivre";
+	divResultatLivre =  divMyBooks.insertBefore(divResultatLivre,myHR);
 
+	
+	chargementPochListe();	
+	
 
+}
 
+initPage();
 
 
 

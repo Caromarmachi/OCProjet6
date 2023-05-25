@@ -4,22 +4,16 @@ $couleur-rose: #f3daf2;
 $cd-btn-start: rgb(255, 128, 0);
 $cd-btn-end: rgb(128, 128, 192);
 
-
-
 #logo{
 	width: 200px;
 	display: block;
 	margin: auto;
 }
-#myBooks {
-    background-color : white;
-	font-size: 30px;
-	color : $couleur-bordeau;
-    margin: 0 auto;
-    width: 80%;
-    border: solid;  
-    text-align: center;
-    font-family: 'Inter', sans-serif;
+h1 {
+	background-color : rgb(230, 230, 230);
+	box-shadow: 4px 4px 12px rgb(157, 157, 157);
+	margin: 15px;
+	font-size: 35px;
 }
 .h2 {
 	font-size: 20px;
@@ -27,146 +21,136 @@ $cd-btn-end: rgb(128, 128, 192);
 	color : $couleur-bordeau;
 	font-family: 'Inter', sans-serif;
 	text-align: center;
+	display: block;
+}
+#myBooks {
+	font-size: 30px;
+	color : $couleur-bordeau;
+   	margin: auto;
+    width: 80%;
+    border: solid;  
+    text-align: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    
 }
 .btn {
-    background-color: #30911f;
+	font-family: 'Inter', sans-serif;
+    background-color: rgb(0, 157, 157);
+    border-radius: 30px;
     width: 200px;
 	padding: 15px;
-	border: none;
-    border-radius: 30px;
-    margin: 20px;
-    font-size: 16px;   
-	transition: transform 450ms, background-color 300ms;
-	transition-delay: 0, 150ms;
-            &:hover {
-        transform: scale(1.13);
-        background-color: $cd-btn-end;
-    } 
-
-}
+    margin: 5px;
+    font-size: 15px;  
+   	color: white;
+    }
 /* Un bouton classique mais avec une couleur de fond rouge. */
 .btn-rouge {
     background-color: #e63222;   
-
-}
-#pochListe {
-    visibility : visible;
+	}	
+#divFormulaire {
+	visibility : hidden;
+	display: none;
 	font-size: 10px;
-	font-weight: normal;
-	color : $couleur-bordeau;
-   	background-color : white;
-    margin: 0 auto;
-    width: 80%;
-    border: 1px;
-    border: solid;  
-    text-align: center;
-    font-family: 'Inter', sans-serif;	
+    margin: auto;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 5px;
+    
 }
-.boxPochList {
-    background-color: $couleur-rose;
-    border:1.5px solid black;
-    display: flex;
-    align-items: left;
-    justify-content: left;
-	padding: 50px;
+#monBoutonAjouterLivre {
+	text-align: center;
+    margin: auto;
+}
+.iconAjout{
+	text-align: right;
+  	margin-left: 100%;
 }
 form{
     display: flex;
-    Flex-direction :flow;
-    margin: auto;
-    border:1.5px solid black;
-    justify-content: center;
+    flex-direction: flow;
+    justify-content: left;
+    font-size: 15px;
+    width: 100%;
 }
 input {
 	padding: 10px;
-	border:1.5px solid black;
+	padding-right: 0px;
+	border:2px solid rgb(128, 0, 64);
+	display: flex;
+	width: 96%	
 }
-.content {
-	font-size: 14px;
+p {
+	width: 100%;
+}
+#content {
+	visibility : visible;
+	background-color : white;
+	font-size: 15px;
 	font-weight: normal;
 	color : $couleur-bordeau;
+    margin: auto;
+    font-family: 'Inter', sans-serif;	
+    display: grid;
+  	grid-template-columns: repeat(2, 1fr);
+  	gap: 20px;
+  	grid-auto-rows: minmax(200px, auto);
+  	padding: 15px;
 }
+#divResultatLivre {
+	visibility : hidden;
+    background-color : white;
+	font-size: 15px;
+	color : $couleur-bordeau;
+    margin: auto;
+    font-family: 'Inter', sans-serif;
+    display: grid;
+  	grid-template-columns: repeat(2, 1fr);
+  	gap: 20px;
+  	grid-auto-rows: minmax(200px, auto);
+  	padding: 15px;
+}
+
 .box {
     background-color: #CCCCCC;
-    border:1.5px solid black;
-    display: flex;
-    justify-content: left;
+   	border:1.5px solid black;
+    justify-content: center;
 	padding: 50px;
+ }
+ .boxPochList {
+    background-color: $couleur-rose;
 }
-.ulBookClass {
+ .ulBookClass {
 	list-style: square;
 	width: 100%;
 	text-align: left;
 }
 .imagesBook{
 	width: 128px;
-	padding: 0;
+	padding: 15px;
+	margin: auto ;
 }
-#NouveauLivre {
-	visibility : hidden;
-	display:none;
-    background-color : white;
-	font-size: 30px;
-	color : $couleur-bordeau;
-    margin: 0 auto;
-    width: 80%;
-    border: 1px;
-    border: solid;  
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-}
-#ResultatLivre {
-	visibility : hidden;
-    background-color : white;
-	font-size: 30px;
-	color : $couleur-bordeau;
-    margin: 0 auto;
-    width: 80%;
-    border: 1px;
-    border: solid;  
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-}
+
 /* Sur les �crans, quand la largeur de la fen�tre fait au maximum 1280px */
 @media screen and (max-width:1280px){
-	.box{
-	flex-direction: column;
+	
+	#divResultatLivre {
+		grid-template-columns: repeat(1, 1fr);
 	}
-	.boxPochList{
-	flex-direction: column;
-	justify-content: center;
-
-	}
-	.ulBookClass{
-	flex-direction: column;
-	padding : 0;
-	}
-	.imagesBook{
-	margin: auto;
-	}
-	.fa-xl {
-    line-height:1.5em;
-
+	#content {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
 /* Special fold  */
-@media screen and (max-width:290px){
-	.box{
-	flex-direction: column;
+@media screen and (max-width:690px){
+
+	#divResultatLivre {
+		grid-template-columns: repeat(1, 1fr);
 	}
-	.boxPochList{
-	flex-direction: column;
-	justify-content: left;
-	margin: auto;
-	}
-	.ulBookClass{
-	flex-direction: column;
-	padding : 0;
-	}
-	.btn {
-	size: 60%;
-	width: 60%;
+	#content {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
 
-      
+ 
