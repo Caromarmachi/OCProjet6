@@ -97,34 +97,42 @@ function handleResponse(response) {
 	
 			let divElement = document.createElement('div');
 			divElement.className = "box";		
-			let ulElement = document.createElement('ul');
-			ulElement.className = "ulBookClass";
-			let titreElement = document.createElement('li');
-			titreElement.innerHTML = "<b>Titre: " + item.volumeInfo.title + "</b>";
-			let idElement = document.createElement('li');
-			idElement.innerHTML = "<b>ID: " + item.id + "</b>";
-			let auteursElement = document.createElement('li');
-			auteursElement.innerText = "Auteurs: " + item.volumeInfo.authors;
-			let descriptionElement = document.createElement('li');
-			descriptionElement.innerText = "Description: " + fullDescription + "...";
+			
+			let divTitreIcon = document.createElement('div');
+			divTitreIcon.className = "divTitreIcon";		
+
+			let divDetailLivre = document.createElement('div');
+			divDetailLivre.className = "divDetailLivre";		
+
+			let divIcon = document.createElement('div');
+			divIcon.className = "divIcon";		
+			
+			let divImage = document.createElement('div');
+			divImage.className = "divImage";		
+			
+			let detailHtml = "<b>Titre: " + item.volumeInfo.title + "</b><br>" +
+							"<br><b>ID: " + item.id + "</b><br>" +
+							"<br>Auteurs: " + item.volumeInfo.authors +
+							"<br><br>Description: " + fullDescription + "...";
+			divDetailLivre.innerHTML = detailHtml;		
+			
+			let boutonElement = document.createElement('i');
+			boutonElement.className = "fa-solid fa-book-bookmark fa-xl";
+			//I add to the button the javascript function 'MethodBoutonAjoutListe' which takes the current item as a parameter
+			boutonElement.onclick = function() { methodeBoutonAjoutListe(item); };
+			divIcon.appendChild(boutonElement);
+			
 			let imageElement = document.createElement('img');
 			imageElement.src = image;
-			imageElement.className = "imagesBook";
-	
-			divElement.appendChild(ulElement);
-			ulElement.appendChild(titreElement)
-			ulElement.appendChild(idElement)
-			ulElement.appendChild(auteursElement)
-			ulElement.appendChild(descriptionElement)
-			divElement.appendChild(imageElement);
-	
-			let boutonElement = document.createElement('i');
-			boutonElement.className = "fa-solid fa-book-bookmark fa-xl iconAjout";
+			imageElement.className = "divImage";
+			divImage.appendChild(imageElement);
 			
-		
-	//I add to the button the javascript function 'MethodBoutonAjoutListe' which takes the current item as a parameter
-			boutonElement.onclick = function() { methodeBoutonAjoutListe(item); };
-			divElement.prepend(boutonElement);
+			divTitreIcon.appendChild(divDetailLivre);
+			divTitreIcon.appendChild(divIcon);
+			
+			
+			divElement.appendChild(divTitreIcon);
+			divElement.appendChild(divImage);
 			divResultatLivre.appendChild(divElement);
 	
 		}
@@ -215,36 +223,46 @@ function chargementPochListe() {
 				}
 		
 				let divElement = document.createElement('div');
-				divElement.className = "box boxPochList";				
-				let ulElement = document.createElement('ul');
-				ulElement.className = "ulBookClass";		
-				let titreElement = document.createElement('li');
-				titreElement.innerHTML = "<b>Titre: " + item.volumeInfo.title + "</b>";		
-				let idElement = document.createElement('li');
-				idElement.innerHTML = "<b>ID: " + item.id + "</b>";	
-				let auteursElement = document.createElement('li');
-				auteursElement.innerText = "Auteurs: " + item.volumeInfo.authors;		
-				let descriptionElement = document.createElement('li');
-				descriptionElement.innerText = "Description: " + fullDescription + "...";		
+				divElement.className = "box boxPochList";			
+				let divTitreIcon = document.createElement('div');
+				divTitreIcon.className = "divTitreIcon";		
+	
+				let divDetailLivre = document.createElement('div');
+				divDetailLivre.className = "divDetailLivre";		
+	
+				let divIcon = document.createElement('div');
+				divIcon.className = "divIcon";		
+				
+				let divImage = document.createElement('div');
+				divImage.className = "divImage";		
+				
+				let detailHtml = "<b>Titre: " + item.volumeInfo.title + "</b><br>" +
+								"<br><b>ID: " + item.id + "</b><br>" +
+								"<br>Auteurs: " + item.volumeInfo.authors +
+								"<br><br>Description: " + fullDescription + "...";
+				divDetailLivre.innerHTML = detailHtml;		
+				
+											
+				let boutonElementTrash = document.createElement('i');
+				boutonElementTrash.className = "fa-solid fa-trash fa-xl";	
+				boutonElementTrash.onclick = function() { methodeSuppressionListe(item); };
+				
+				divIcon.appendChild(boutonElementTrash);
+				
+				
 				let imageElement = document.createElement('img');
 				imageElement.src = image;
-				imageElement.className = "imagesBook";
+				imageElement.className = "divImage";
+				divImage.appendChild(imageElement);
 				
-				divElement.appendChild(ulElement);
-				ulElement.appendChild(titreElement)
-				ulElement.appendChild(idElement)
-				ulElement.appendChild(auteursElement)
-				ulElement.appendChild(descriptionElement)
-				divElement.appendChild(imageElement);
-								
-				let boutonElementTrash = document.createElement('i');
-				boutonElementTrash.className = "fa-solid fa-trash fa-xl iconAjout";	
-		
-				boutonElementTrash.onclick = function() { methodeSuppressionListe(item); };
-				divElement.prepend(boutonElementTrash);
-				document.getElementById('content').appendChild(divElement);		
-
-						  
+				divTitreIcon.appendChild(divDetailLivre);
+				divTitreIcon.appendChild(divIcon);
+				
+				
+				divElement.appendChild(divTitreIcon);
+				divElement.appendChild(divImage);
+				document.getElementById('content').appendChild(divElement);				
+												  
 			}
 }
 // build the header of the empty list (title + purge button)

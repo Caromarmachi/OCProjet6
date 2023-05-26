@@ -63,11 +63,6 @@ h1 {
   margin: auto;
 }
 
-.iconAjout {
-  text-align: right;
-  margin-left: 100%;
-}
-
 form {
   display: flex;
   flex-direction: flow;
@@ -117,6 +112,10 @@ p {
   padding: 15px;
 }
 
+.divDetailLivre {
+  text-align: left;
+}
+
 .box {
   background-color: #CCCCCC;
   border: 1.5px solid black;
@@ -128,13 +127,12 @@ p {
   background-color: #f3daf2;
 }
 
-.ulBookClass {
-  list-style: square;
-  width: 100%;
-  text-align: left;
+.divTitreIcon {
+  display: flex;
+  justify-content: space-between;
 }
 
-.imagesBook {
+.divImage {
   width: 128px;
   padding: 15px;
   margin: auto;

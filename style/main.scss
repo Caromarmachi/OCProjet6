@@ -63,10 +63,7 @@ h1 {
 	text-align: center;
     margin: auto;
 }
-.iconAjout{
-	text-align: right;
-  	margin-left: 100%;
-}
+
 form{
     display: flex;
     flex-direction: flow;
@@ -111,6 +108,9 @@ p {
   	grid-auto-rows: minmax(200px, auto);
   	padding: 15px;
 }
+.divDetailLivre {
+	text-align: left;
+}
 
 .box {
     background-color: #CCCCCC;
@@ -121,12 +121,12 @@ p {
  .boxPochList {
     background-color: $couleur-rose;
 }
- .ulBookClass {
-	list-style: square;
-	width: 100%;
-	text-align: left;
-}
-.imagesBook{
+.divTitreIcon {
+	display: flex;
+	justify-content: space-between;
+}		
+			
+.divImage{
 	width: 128px;
 	padding: 15px;
 	margin: auto ;
